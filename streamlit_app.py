@@ -7,7 +7,7 @@ import seaborn as sns
 @st.cache_data
 def load_data():
     # Gantilah dengan data asli yang Anda miliki
-    df = pd.read_csv("dashboard/main_data.csv", )
+    df = pd.read_csv("main_data.csv",)
     df["datetime"] = pd.to_datetime(df["datetime"], errors="coerce")  # Konversi ke datetime
     df["year"] = df["datetime"].dt.year
     return df
