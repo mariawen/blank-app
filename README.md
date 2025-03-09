@@ -1,19 +1,25 @@
-# 🎈 Blank app template
+# Dicoding Collection Dashboard ✨
 
-A simple Streamlit app template for you to modify!
+## Setup Environment - Anaconda
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+```
+conda create --name main-ds python=3.9
+conda activate main-ds
+pip install -r requirements.txt
+```
 
-### How to run it on your own machine
+## Setup Environment - Shell/Terminal
 
-1. Install the requirements
+```
+mkdir proyek_analisis_data
+cd proyek_analisis_data
+pipenv install
+pipenv shell
+pip install -r requirements.txt
+```
 
-   ```
-   $ pip install -r requirements.txt
-   ```
+## Run steamlit app
 
-2. Run the app
-
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+```
+streamlit run dashboard.py
+```
