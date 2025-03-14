@@ -22,9 +22,6 @@ df_filtered = df[df["year"] == tahun_pilihan]
 monthly_avg = df_filtered.groupby("month")[["pm2.5", "pm10"]].mean()
 df.groupby("month")[["pm2.5", "pm10"]].mean()
 
-st.subheader("Kesimpulan")
-st.write("Polusi PM2.5 dan PM10 cenderung mengalami peningkatan pada awal tahun (Jan - Apr) dan menurun di pertengahan tahun (Jun - Sep). Lonjakan kembali terjadi menjelang akhir tahun (Okt - Des), yang mungkin terkait dengan perubahan cuaca atau aktivitas manusia tertentu (misalnya musim kemarau, polusi kendaraan, atau aktivitas industri).","Tahun 2014 dan 2016 menunjukkan lonjakan PM2.5 dan PM10 yang lebih tinggi dibandingkan tahun lainnya, terutama pada Maret - Mei. Tahun 2015 tampaknya memiliki tren yang lebih stabil dibandingkan 2014 dan 2016.")
-
 # Visualisasi Tren Polusi Udara
 st.title(f"Tren Polusi Udara Tahun {tahun_pilihan}")
 fig, ax = plt.subplots(figsize=(8, 4))
@@ -34,6 +31,12 @@ ax.set_ylabel("Konsentrasi Polutan")
 ax.set_xticks(range(1, 13))
 ax.set_xticklabels(["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"])
 st.pyplot(fig)
+
+kesimpulan = ["Polusi PM2.5 dan PM10 cenderung mengalami peningkatan pada awal tahun (Jan - Apr) dan menurun di pertengahan tahun (Jun - Sep). Lonjakan kembali terjadi menjelang akhir tahun (Okt - Des), yang mungkin terkait dengan perubahan cuaca atau aktivitas manusia tertentu (misalnya musim kemarau, polusi kendaraan, atau aktivitas industri).","Tahun 2014 dan 2016 menunjukkan lonjakan PM2.5 dan PM10 yang lebih tinggi dibandingkan tahun lainnya, terutama pada Maret - Mei. Tahun 2015 tampaknya memiliki tren yang lebih stabil dibandingkan 2014 dan 2016."]
+
+st.subheader("Kesimpulan")
+for item in kesimpulan:
+    st.write(f"- {item}")
 
 # Heatmap Korelasi Faktor Lingkungan
 st.title("Pola Hubungan antara Faktor Meteorologi dan Polusi")
