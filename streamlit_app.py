@@ -45,6 +45,12 @@ fig, ax = plt.subplots(figsize=(6, 4))
 sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f", linewidths=0.5, ax=ax)
 st.pyplot(fig)
 
+kesimpulan = ["PM2.5 dan PM10 memiliki korelasi sangat tinggi (0.85)Artinya, jika PM2.5 meningkat, PM10 juga cenderung meningkat, karena keduanya berasal dari sumber yang serupa","Suhu (temp) memiliki korelasi rendah dengan polusi (sekitar 0.07 dan 0.09)Artinya, suhu tidak terlalu berpengaruh langsung terhadap tingkat polusi udara.","Tekanan udara (pres) memiliki korelasi negatif dengan PM2.5 dan PM10 (-0.13 dan -0.16)Saat tekanan udara tinggi, polutan cenderung terdispersi lebih baik, sehingga konsentrasi polusi menurun.","Curah hujan (rain) memiliki korelasi negatif dengan polusi (-0.10 dan -0.12)Hujan membantu mengurangi polusi udara dengan cara 'membersihkan' partikel dari atmosfer.","Kecepatan angin (wspm) juga berkorelasi negatif dengan polusi (-0.25 dan -0.21)Saat kecepatan angin lebih tinggi, polutan lebih cepat terbawa dan terdispersi, sehingga polusi berkurang.","PM2.5 dan PM10 sangat dipengaruhi oleh CO, NO2, dan SO2,berarti sumber utama polusi udara kemungkinan besar berasal dari emisi kendaraan, industri, dan pembakaran bahan bakar fosil."]
+
+for item in kesimpulan:
+    st.write(f"- {item}")
+
+
 # Kesimpulan
 st.subheader("Kesimpulan")
 st.write(
