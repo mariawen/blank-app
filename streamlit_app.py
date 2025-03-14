@@ -50,10 +50,3 @@ kesimpulan = ["PM2.5 dan PM10 memiliki korelasi sangat tinggi (0.85)Artinya, jik
 for item in kesimpulan:
     st.write(f"- {item}")
 
-
-# Kesimpulan
-st.subheader("Kesimpulan")
-st.write(
-    f"Pengendalian polusi perlu difokuskan pada bulan-bulan dengan tren peningkatan (awal dan akhir tahun) untuk mengurangi dampak buruknya.Peningkatan pemantauan dan intervensi kebijakan bisa membantu mengendalikan tren polusi, terutama di kota-kota dengan risiko tinggi. \n"
-    "Pengurangan polusi harus difokuskan pada pengendalian sumber pencemaran seperti kendaraan bermotor dan industri, bukan hanya mengandalkan faktor cuaca.Strategi tata kota bisa memanfaatkan pola angin untuk mengurangi polusi di daerah dengan tingkat polutan tinggi, misalnya dengan menanam lebih banyak pohon di jalur angin utama.Pemantauan polusi sebaiknya tidak hanya mempertimbangkan faktor cuaca, tetapi juga aktivitas manusia, seperti lalu lintas dan aktivitas industri."
-)
