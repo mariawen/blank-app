@@ -23,7 +23,7 @@ monthly_avg = df_filtered.groupby("month")[["pm2.5", "pm10"]].mean()
 df.groupby("month")[["pm2.5", "pm10"]].mean()
 
 # Visualisasi Tren Polusi Udara
-st.title(f"Tren Polusi Udara Tahun {tahun_pilihan}")
+st.title(f"Pola Polusi Udara Tahun {tahun_pilihan}")
 fig, ax = plt.subplots(figsize=(8, 4))
 sns.lineplot(data=monthly_avg, markers=True, ax=ax)
 ax.set_xlabel("Bulan")
