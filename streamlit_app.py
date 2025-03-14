@@ -6,9 +6,8 @@ import seaborn as sns
 # Load Data
 @st.cache_data
 def load_data():
-    # Gantilah dengan data asli yang Anda miliki
     df = pd.read_csv("main_data.csv",)
-    df["datetime"] = pd.to_datetime(df["datetime"], errors="coerce")  # Konversi ke datetime
+    df["datetime"] = pd.to_datetime(df["datetime"], errors="coerce")
     df["year"] = df["datetime"].dt.year
     return df
 
@@ -21,7 +20,10 @@ tahun_pilihan = st.sidebar.selectbox("Pilih Tahun", sorted(df["year"].unique()))
 # Filter data berdasarkan tahun yang dipilih
 df_filtered = df[df["year"] == tahun_pilihan]
 monthly_avg = df_filtered.groupby("month")[["pm2.5", "pm10"]].mean()
-df.groupby("month")[["pm2.5", "pm10"]].mean()  # ✅ Berjalan dengan baik!
+df.groupby("month")[["pm2.5", "pm10"]].mean()
+
+st.subheader("Kesimpulan")
+st.write("Polusi PM2.5 dan PM10 cenderung mengalami peningkatan pada awal tahun (Jan - Apr) dan menurun di pertengahan tahun (Jun - Sep). Lonjakan kembali terjadi menjelang akhir tahun (Okt - Des), yang mungkin terkait dengan perubahan cuaca atau aktivitas manusia tertentu (misalnya musim kemarau, polusi kendaraan, atau aktivitas industri).","Tahun 2014 dan 2016 menunjukkan lonjakan PM2.5 dan PM10 yang lebih tinggi dibandingkan tahun lainnya, terutama pada Maret - Mei. Tahun 2015 tampaknya memiliki tren yang lebih stabil dibandingkan 2014 dan 2016.")
 
 # Visualisasi Tren Polusi Udara
 st.title(f"Tren Polusi Udara Tahun {tahun_pilihan}")
@@ -34,8 +36,8 @@ ax.set_xticklabels(["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep
 st.pyplot(fig)
 
 # Heatmap Korelasi Faktor Lingkungan
-st.subheader("Korelasi Faktor Lingkungan dan Polusi Udara")
-corr = df_filtered[["pm2.5", "pm10", "temp", "pres", "rain", "wspm"]].corr()
+st.title("Pola Hubungan antara Faktor Meteorologi dan Polusi")
+corr = df_filtered[['pm2.5', 'pm10', 'so2', 'no2', 'co', 'o3', 'temp', 'pres', 'dewp', 'rain', 'wspm']].corr()
 fig, ax = plt.subplots(figsize=(6, 4))
 sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f", linewidths=0.5, ax=ax)
 st.pyplot(fig)
